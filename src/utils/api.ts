@@ -9,7 +9,7 @@ export const login = async (data: any) => {
   try {
     return await apiClient.post("/auth/login", data);
   } catch (e) {
-    return {error: e};
+    return {error: true, exception: e};
   }
 };
 
@@ -17,6 +17,6 @@ export const register = async (data: any) => {
   try {
     return await apiClient.post("/auth/register", data);
   } catch (e) {
-    return {error: e};
+    return {error: e, exception: e};
   }
 };
