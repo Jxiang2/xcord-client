@@ -2,7 +2,7 @@ import React from 'react';
 import InputLabel from "../../components/InputLabel";
 import {ILoginInputForm} from "../../react-app-env";
 
-const LoginInputForm = ({mail, setMail, password, setPassword}: ILoginInputForm) => {
+const LoginPageInputForm = ({mail, setMail, password, setPassword}: ILoginInputForm) => {
 
   return (
     <>
@@ -25,4 +25,4 @@ const LoginInputForm = ({mail, setMail, password, setPassword}: ILoginInputForm)
   );
 };
 
-export default LoginInputForm;
+export default LoginPageInputForm;

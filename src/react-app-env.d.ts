@@ -23,7 +23,7 @@ interface ICustomButton {
 interface ILoginInputForm {
   mail: string;
   setMail: React.Dispatch<React.SetStateAction<string>>;
-  password: any;
+  password: string;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
 }
 
@@ -34,10 +34,20 @@ interface IRedirectInfo {
   redirectHandler: () => void;
 }
 
+interface IRegisterInputForm {
+  mail: string;
+  setMail: React.Dispatch<React.SetStateAction<string>>;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  username: string;
+  setUsername: React.Dispatch<React.SetStateAction<string>>;
+}
+
 export {
   ReactChildrenPropsType,
   IInputLabel,
   ILoginInputForm,
   ICustomButton,
-  IRedirectInfo
+  IRedirectInfo,
+  IRegisterInputForm
 };

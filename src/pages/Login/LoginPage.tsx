@@ -1,12 +1,13 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Tooltip} from "@mui/material";
 
 import AuthBox from "../../components/AuthBox";
-import LoginHeader from "./LoginHeader";
-import LoginInputForm from "./LoginInputForm";
+import LoginPageHeader from "./LoginPageHeader";
+import LoginPageInputForm from "./LoginPageInputForm";
 import CustomPrimaryButton from "../../components/CustomPrimaryButton";
 import RedirectInfo from "../../components/RedirectInfo";
+import {validateLoginForm} from "../../utils/validators";
 
 const INVALID_FORM_MESSAGE = "Enter correct email address and password that contains" +
   " 6-12 characters";
@@ -19,15 +20,19 @@ const LoginPage = () => {
   const [isFormValid, setIsFormValid] = useState(false);
   const navigate = useNavigate();
 
+  useEffect(() => {
+    setIsFormValid(validateLoginForm(mail, password));
+  }, [mail, password]);
+
   const handleLogin = () => {
-    console.log("login");
+    console.log(mail, password);
   };
 
   return (
     <AuthBox>
-      <LoginHeader/>
+      <LoginPageHeader/>
 
-      <LoginInputForm
+      <LoginPageInputForm
         mail={mail}
         setMail={setMail}
         password={password}
