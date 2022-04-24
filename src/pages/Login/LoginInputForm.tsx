@@ -1,8 +1,8 @@
 import React from 'react';
-import InputLabel from "./InputLabel";
-import {ILoginInputs} from "../react-app-env";
+import InputLabel from "../../components/InputLabel";
+import {ILoginInputForm} from "../../react-app-env";
 
-const LoginInputForm = ({mail, setMail, password, setPassword}: ILoginInputs) => {
+const LoginInputForm = ({mail, setMail, password, setPassword}: ILoginInputForm) => {
 
   return (
     <>
