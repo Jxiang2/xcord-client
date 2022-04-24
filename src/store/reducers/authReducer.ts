@@ -1,13 +1,11 @@
-import actions from "../actions/authActions";
-
 const initState = {
   userDetail: null
-}
+};
 
-const authReducer = (state=initState, action: { }) => {
+const authReducer = (state = initState, action: {}) => {
   switch (action) {
     case "DUMMY":
-      return { ...state };
+      return {...state};
     default:
       return state;
   }
