@@ -3,13 +3,14 @@ import {Alert, Snackbar} from "@mui/material";
 import {connect} from "react-redux";
 import {getActions} from "../store/actions/alertAction";
 import {Dispatch} from "@reduxjs/toolkit";
+import {IAlertNotification, IReduxState} from "../react-app-env";
 
 const AlertNotification = (
   {
     showAlert,
     closeAlertMessageAction,
     alertContent
-  }: any) => {
+  }: IAlertNotification) => {
   return (
     <Snackbar
       anchorOrigin={{vertical: "bottom", horizontal: "center"}}
@@ -24,7 +25,7 @@ const AlertNotification = (
   );
 };
 
-const mapStoreStateToProps = (state: any) => {
+const mapStoreStateToProps = (state: IReduxState) => {
   return {...state.alert};
 };
 

@@ -44,6 +44,22 @@ interface IRegisterInputForm {
   setUsername: React.Dispatch<React.SetStateAction<string>>;
 }
 
+interface IAlertNotification {
+  showAlert?: boolean;
+  closeAlertMessageAction?: () => void;
+  alertContent?: any;
+}
+
+interface IReduxState {
+  alert: {
+    showAlert: boolean,
+    alertContent: null
+  };
+  auth: {
+    userDetails: any
+  };
+}
+
 interface IReduxAction extends Action {
   type: string;
   payload: { [k: string]: string | number | object | boolean };
@@ -57,4 +73,6 @@ export {
   IRedirectInfo,
   IRegisterInputForm,
   IReduxAction,
+  IAlertNotification,
+  IReduxState
 };
