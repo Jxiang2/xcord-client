@@ -52,11 +52,11 @@ interface IAlertNotification {
 
 interface IReduxState {
   alert: {
-    showAlert: boolean,
-    alertContent: null
+    showAlert: boolean;
+    alertContent: any;
   };
   auth: {
-    userDetails: any
+    userDetails: null | { [k: string]: string | number }
   };
 }
 

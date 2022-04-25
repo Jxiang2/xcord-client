@@ -51,7 +51,7 @@ const RegisterPage = ({registerAction}: {
       <Tooltip title={isFormValid ? VALID_FORM_MESSAGE : INVALID_FORM_MESSAGE}>
         <div>
           <CustomPrimaryButton
-            label="Login"
+            label="Register"
             additionalStyles={{marginTop: "30px"}}
             disabled={!isFormValid}
             clickButton={handleRegister}
