@@ -1,6 +1,7 @@
 import api from "../../utils/api";
 import type {NavigateFunction} from "react-router-dom";
 import type {Dispatch} from "@reduxjs/toolkit";
+import {openAlertMessage} from "./alertAction";
 
 export const authActions = {
   SET_USER_DETAILS: "AUTH.SET_USER_DETAILS" // code name of action: real name of action
@@ -19,8 +20,7 @@ const login = (userDetails: any, navigate: NavigateFunction) => {
   return async (dispatch: Dispatch) => {
     const response: any = await api.login(userDetails);
     if (response?.error) {
-      // show err message
-      console.log(response);
+      dispatch(openAlertMessage(response?.exception?.response?.data));
     } else {
       const userDetails = response?.data;
       localStorage.setItem("user", JSON.stringify(userDetails));
@@ -39,8 +39,7 @@ const register = (userDetails: any, navigate: NavigateFunction) => {
   return async (dispatch: Dispatch) => {
     const response: any = await api.register(userDetails);
     if (response?.error) {
-      // show err message
-      console.log(response);
+      dispatch(openAlertMessage(response?.exception?.response?.data));
     } else {
       const userDetails = response?.data;
       localStorage.setItem("user", JSON.stringify(userDetails));

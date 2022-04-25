@@ -46,7 +46,7 @@ interface IRegisterInputForm {
 
 interface IReduxAction extends Action {
   type: string;
-  payload: { [k: string]: string | number | object };
+  payload: { [k: string]: string | number | object | boolean };
 }
 
 export {
