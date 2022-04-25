@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import {getActions} from "../store/actions/alertAction";
 import {Dispatch} from "@reduxjs/toolkit";
 
-
 const AlertNotification = (
   {
     showAlert,
@@ -25,11 +24,9 @@ const AlertNotification = (
   );
 };
 
-
 const mapStoreStateToProps = (state: any) => {
   return {...state.alert};
 };
-
 
 const mapActionsToProps = (dispatch: Dispatch) => {
   return {...getActions(dispatch)};
