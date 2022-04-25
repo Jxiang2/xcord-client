@@ -1,5 +1,6 @@
 /// <reference types="react-scripts" />
 import React from "react";
+import {Action} from "@reduxjs/toolkit";
 
 type ReactChildrenPropsType = {
   children: React.ReactNode;
@@ -43,11 +44,17 @@ interface IRegisterInputForm {
   setUsername: React.Dispatch<React.SetStateAction<string>>;
 }
 
+interface IReduxAction extends Action {
+  type: string;
+  payload: { [k: string]: string | number | object };
+}
+
 export {
   ReactChildrenPropsType,
   IInputLabel,
   ILoginInputForm,
   ICustomButton,
   IRedirectInfo,
-  IRegisterInputForm
+  IRegisterInputForm,
+  IReduxAction,
 };
