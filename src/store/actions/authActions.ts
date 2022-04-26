@@ -39,7 +39,7 @@ const login = (userDetails: any, navigate: NavigateFunction) => {
 const register = (userDetails: any, navigate: NavigateFunction) => {
   return async (dispatch: Dispatch) => {
     const response: any = await api.register(userDetails);
-    console.log(response);
+  
     if (response?.error) {
       dispatch(openAlertMessage(response?.exception?.response?.data));
     } else {
