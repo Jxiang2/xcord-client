@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from "react";
 import {NavigateFunction, useNavigate} from "react-router-dom";
-
 import AuthBox from "../../components/AuthBox";
 import {Tooltip, Typography} from "@mui/material";
 import RegisterPageInputForm from "./RegisterPageInputForm";

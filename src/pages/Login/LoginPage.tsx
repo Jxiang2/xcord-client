@@ -1,9 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {NavigateFunction, useNavigate} from "react-router-dom";
 import {connect} from "react-redux";
-import {getActions} from "../../store/actions/authActions";
 import {Tooltip, Typography} from "@mui/material";
-
+import {getActions} from "../../store/actions/authActions";
 import AuthBox from "../../components/AuthBox";
 import LoginPageInputForm from "./LoginPageInputForm";
 import CustomPrimaryButton from "../../components/CustomPrimaryButton";
