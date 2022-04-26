@@ -65,6 +65,17 @@ interface IReduxAction extends Action {
   payload: { [k: string]: string | number | object | boolean };
 }
 
+interface ILoginData {
+  username: string;
+  password: string;
+}
+
+interface IRegisterData {
+  username: string;
+  password: string;
+  mail: string;
+}
+
 export {
   ReactChildrenPropsType,
   IInputLabel,
@@ -74,5 +85,7 @@ export {
   IRegisterInputForm,
   IReduxAction,
   IAlertNotification,
-  IReduxState
+  IReduxState,
+  ILoginData,
+  IRegisterData,
 };
