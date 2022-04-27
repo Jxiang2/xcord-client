@@ -16,8 +16,8 @@ interface IInputLabel {
 
 interface ICustomButton {
   label: string;
-  additionalStyles: { [k: string]: string | number };
-  disabled: boolean;
+  additionalStyles?: { [k: string]: string | number };
+  disabled?: boolean;
   clickButton: () => void;
 }
 
@@ -76,6 +76,12 @@ interface IRegisterData {
   mail: string;
 }
 
+interface IAddFriendDialog {
+  isDialogOpen: boolean;
+  closeDialog: () => void;
+  sendFriendInvitation: () => void;
+}
+
 export {
   ReactChildrenPropsType,
   IInputLabel,
@@ -88,4 +94,5 @@ export {
   IReduxState,
   ILoginData,
   IRegisterData,
+  IAddFriendDialog
 };
