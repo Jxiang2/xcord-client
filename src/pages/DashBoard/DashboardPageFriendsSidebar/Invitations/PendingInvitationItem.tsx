@@ -1,4 +1,4 @@
-import React, {Fragment, useState} from 'react';
+import React, {useState} from 'react';
 import {IconButton, Tooltip, Typography} from "@mui/material";
 import Box from "@mui/material/Box";
 import Avatar from "../FriendList/Avatar";
@@ -8,13 +8,9 @@ import ClearIcon from "@mui/icons-material/Clear";
 
 const PendingInvitationItem = (
   {
-    id,
-    username,
-    mail,
-    acceptInvite,
-    rejectInvite
-  }
-    : IPendingInvitationItem) => {
+    id, username, mail,
+    acceptInvite, rejectInvite
+  }: IPendingInvitationItem) => {
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const handleAcceptInvitation = () => {
@@ -53,25 +49,23 @@ const PendingInvitationItem = (
           </Typography>
 
           {/*accept/decline invitation button*/}
-          <Fragment>
-            <Box sx={{display: "flex"}}>
-              <IconButton
-                style={{color: "white"}}
-                disabled={buttonDisabled}
-                onClick={handleAcceptInvitation}
-              >
-                <CheckIcon/>
-              </IconButton>
+          <Box sx={{display: "flex"}}>
+            <IconButton
+              style={{color: "white"}}
+              disabled={buttonDisabled}
+              onClick={handleAcceptInvitation}
+            >
+              <CheckIcon/>
+            </IconButton>
 
-              <IconButton
-                style={{color: "white"}}
-                disabled={buttonDisabled}
-                onClick={handleRejectInvitation}
-              >
-                <ClearIcon/>
-              </IconButton>
-            </Box>
-          </Fragment>
+            <IconButton
+              style={{color: "white"}}
+              disabled={buttonDisabled}
+              onClick={handleRejectInvitation}
+            >
+              <ClearIcon/>
+            </IconButton>
+          </Box>
         </Box>
       </div>
     </Tooltip>

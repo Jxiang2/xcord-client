@@ -18,24 +18,14 @@ const DashboardPageFriendsSidebar = () => {
     <MainContainer>
       <AddFriendButton/>
 
-      <Typography sx={{
-        textTransform: "uppercase",
-        color: "#8e9297",
-        fontSize: "14px",
-        marginTop: "10px"
-      }}>
-        Private messages
+      <Typography sx={{color: "#8e9297", marginTop: "15px"}}>
+        private messages
       </Typography>
 
       <FriendList/>
 
-      <Typography sx={{
-        textTransform: "uppercase",
-        color: "#8e9297",
-        fontSize: "14px",
-        marginTop: "10px"
-      }}>
-        Invitations
+      <Typography sx={{color: "#8e9297", marginTop: "15px"}}>
+        invitations
       </Typography>
 
       <PendingInvitationList/>

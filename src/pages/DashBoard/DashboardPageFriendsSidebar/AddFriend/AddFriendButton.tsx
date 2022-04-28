@@ -3,7 +3,7 @@ import CustomPrimaryButton from "../../../../components/CustomPrimaryButton";
 import AddFriendDialog from "./AddFriendDialog";
 
 const additionalStyles = {
-  margin: "15px 5px",
+  margin: "10px 5px",
   width: "80%",
   height: "30px",
   backgroundColor: "#3ba55d"

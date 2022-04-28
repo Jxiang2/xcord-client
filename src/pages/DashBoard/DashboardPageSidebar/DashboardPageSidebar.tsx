@@ -12,7 +12,6 @@ const MainContainer = styled("div")({
   backgroundColor: "#202225",
 });
 
-
 const DashboardPageSidebar = () => {
   return (
     <MainContainer>
