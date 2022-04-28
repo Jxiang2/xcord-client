@@ -6,7 +6,7 @@ const MainContainer = styled("div")({
   width: "100%"
 });
 
-const FriendsList = () => {
+const FriendList = () => {
   return (
     <MainContainer>
 
@@ -14,4 +14,4 @@ const FriendsList = () => {
   );
 };
 
-export default FriendsList;
+export default FriendList;

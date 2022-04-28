@@ -1,8 +1,8 @@
 import React from 'react';
 import {styled} from "@mui/material";
-import AddFriendButton from "./AddFriendButton";
+import AddFriendButton from "./AddFriend/AddFriendButton";
 import FriendsSubtitles from "./FriendsSubtitles";
-import FriendsList from "./FriendsList";
+import FriendList from "./FriendList";
 import PendingInvitationList from "./PendingInvitationList";
 
 const MainContainer = styled("div")({
@@ -14,14 +14,14 @@ const MainContainer = styled("div")({
   backgroundColor: "#2F3136",
 });
 
-const FriendsSideBar = () => {
+const FriendsSidebar = () => {
   return (
     <MainContainer>
       <AddFriendButton/>
 
       <FriendsSubtitles title={"Private Messages"}/>
 
-      <FriendsList/>
+      <FriendList/>
 
       <FriendsSubtitles title={"Invitations"}/>
 
@@ -30,4 +30,4 @@ const FriendsSideBar = () => {
   );
 };
 
-export default FriendsSideBar;
+export default FriendsSidebar;

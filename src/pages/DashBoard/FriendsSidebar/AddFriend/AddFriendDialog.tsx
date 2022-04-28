@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {validateMail} from "../../../utils/validators";
+import {validateMail} from "../../../../utils/validators";
 import {Dialog, DialogContent, DialogContentText, DialogTitle, Typography} from "@mui/material";
-import InputLabel from "../../../components/InputLabel";
-import {IAddFriendDialog} from "../../../react-app-env";
+import InputLabel from "../../../../components/InputLabel";
+import {IAddFriendDialog} from "../../../../react-app-env";
 
 const AddFriendDialog = (
   {

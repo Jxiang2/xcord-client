@@ -1,6 +1,6 @@
 import {styled} from "@mui/material";
 import SideBar from "./SideBar";
-import FriendsSideBar from "./FriendsSideBar/FriendsSideBar";
+import FriendsSidebar from "./FriendsSidebar/FriendsSidebar";
 import Messenger from "./Messenger";
 import NavBar from "./NavBar";
 
@@ -15,7 +15,7 @@ const DashboardPage = () => {
     <Wrapper>
       <SideBar/>
 
-      <FriendsSideBar/>
+      <FriendsSidebar/>
 
       <Messenger/>
 
