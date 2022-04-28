@@ -1,9 +1,8 @@
 import React from 'react';
-import {styled} from "@mui/material";
+import {styled, Typography} from "@mui/material";
 import AddFriendButton from "./AddFriend/AddFriendButton";
-import FriendsSubtitles from "./FriendsSidebarElements/FriendsSubtitles";
-import FriendList from "./FriendsSidebarElements/FriendList";
-import PendingInvitationList from "./FriendsSidebarElements/PendingInvitationList";
+import FriendList from "./FriendList/FriendList";
+import PendingInvitationList from "./Invitations/PendingInvitationList";
 
 const MainContainer = styled("div")({
   width: "224px",
@@ -19,11 +18,25 @@ const DashboardPageFriendsSidebar = () => {
     <MainContainer>
       <AddFriendButton/>
 
-      <FriendsSubtitles title={"Private Messages"}/>
+      <Typography sx={{
+        textTransform: "uppercase",
+        color: "#8e9297",
+        fontSize: "14px",
+        marginTop: "10px"
+      }}>
+        Private messages
+      </Typography>
 
       <FriendList/>
 
-      <FriendsSubtitles title={"Invitations"}/>
+      <Typography sx={{
+        textTransform: "uppercase",
+        color: "#8e9297",
+        fontSize: "14px",
+        marginTop: "10px"
+      }}>
+        Invitations
+      </Typography>
 
       <PendingInvitationList/>
     </MainContainer>

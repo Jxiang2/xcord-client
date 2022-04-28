@@ -82,6 +82,14 @@ interface IAddFriendDialog {
   sendFriendInvitation: () => void;
 }
 
+interface IPendingInvitationItem {
+  id: string;
+  username: string;
+  mail: string;
+  acceptInvite: ({id: string}) => void;
+  rejectInvite: ({id: string}) => void;
+}
+
 export {
   ReactChildrenPropsType,
   IInputLabel,
@@ -94,5 +102,6 @@ export {
   IReduxState,
   ILoginData,
   IRegisterData,
-  IAddFriendDialog
+  IAddFriendDialog,
+  IPendingInvitationItem
 };
