@@ -1,8 +1,16 @@
 import React, {useEffect, useState} from 'react';
 import {validateMail} from "../../../../utils/validators";
-import {Dialog, DialogContent, DialogContentText, DialogTitle, Typography} from "@mui/material";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Typography
+} from "@mui/material";
 import InputLabel from "../../../../components/InputLabel";
 import {IAddFriendDialog} from "../../../../react-app-env";
+import CustomPrimaryButton from "../../../../components/CustomPrimaryButton";
 
 const AddFriendDialog = (
   {
@@ -17,6 +25,7 @@ const AddFriendDialog = (
   const handleSendInvitation = () => {
     // send friend request to server
     console.log("send friend request...");
+    closeDialog();
   };
 
   const handleCloseDialog = () => {
@@ -41,6 +50,17 @@ const AddFriendDialog = (
                       promptText="Enter email address"/>
         </DialogContentText>
       </DialogContent>
+
+      <DialogActions>
+        <CustomPrimaryButton
+          label="Send"
+          disabled={!isMailValid}
+          clickButton={handleSendInvitation}
+          additionalStyles={{
+            margin: "10px 15px"
+          }}
+        />
+      </DialogActions>
     </Dialog>
   );
 };
