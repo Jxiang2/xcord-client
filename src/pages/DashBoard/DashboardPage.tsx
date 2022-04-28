@@ -1,8 +1,8 @@
 import {styled} from "@mui/material";
-import SideBar from "./SideBar";
-import FriendsSidebar from "./FriendsSidebar/FriendsSidebar";
-import Messenger from "./Messenger";
-import NavBar from "./NavBar";
+import DashboardPageSidebar from "./DashboardPageSidebar";
+import DashboardPageFriendsSidebar from "./DashboardPageFriendsSidebar/DashboardPageFriendsSidebar";
+import DashboardPageMessenger from "./DashboardPageMessenger";
+import DashboardPageNavbar from "./DashboardPageNavbar";
 
 const Wrapper = styled("div")({
   width: "100%",
@@ -13,13 +13,13 @@ const Wrapper = styled("div")({
 const DashboardPage = () => {
   return (
     <Wrapper>
-      <SideBar/>
+      <DashboardPageSidebar/>
 
-      <FriendsSidebar/>
+      <DashboardPageFriendsSidebar/>
 
-      <Messenger/>
+      <DashboardPageMessenger/>
 
-      <NavBar/>
+      <DashboardPageNavbar/>
     </Wrapper>
   );
 };

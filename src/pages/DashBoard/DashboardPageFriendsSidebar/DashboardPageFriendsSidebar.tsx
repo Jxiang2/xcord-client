@@ -14,7 +14,7 @@ const MainContainer = styled("div")({
   backgroundColor: "#2F3136",
 });
 
-const FriendsSidebar = () => {
+const DashboardPageFriendsSidebar = () => {
   return (
     <MainContainer>
       <AddFriendButton/>
@@ -30,4 +30,4 @@ const FriendsSidebar = () => {
   );
 };
 
-export default FriendsSidebar;
+export default DashboardPageFriendsSidebar;

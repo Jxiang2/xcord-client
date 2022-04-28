@@ -15,11 +15,11 @@ const MainContainer = styled("div")({
   padding: "0 15px",
 });
 
-const NavBar = () => {
+const DashboardPageNavbar = () => {
   return (
     <MainContainer>
     </MainContainer>
   );
 };
 
-export default NavBar;
+export default DashboardPageNavbar;

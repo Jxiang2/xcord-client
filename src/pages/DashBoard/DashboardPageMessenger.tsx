@@ -8,7 +8,7 @@ const MainContainer = styled("div")({
   display: "flex"
 });
 
-const Messenger = () => {
+const DashboardPageMessenger = () => {
   return (
     <MainContainer>
 
@@ -16,4 +16,4 @@ const Messenger = () => {
   );
 };
 
-export default Messenger;
+export default DashboardPageMessenger;

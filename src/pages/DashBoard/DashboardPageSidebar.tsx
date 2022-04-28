@@ -13,7 +13,7 @@ const MainContainer = styled("div")({
 });
 
 
-const SideBar = () => {
+const DashboardPageSidebar = () => {
   return (
     <MainContainer>
       <Button
@@ -51,4 +51,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default DashboardPageSidebar;
