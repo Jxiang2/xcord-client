@@ -21,17 +21,27 @@ const AddFriendDialog = (
 ) => {
   const [mail, setMail] = useState("");
   const [isMailValid, setIsMailValid] = useState(false);
+  const [addList, setAddList] = useState<string[]>([]);
 
   const handleSendInvitation = () => {
     // send friend request to server
-    console.log("send friend request...");
+    addList.forEach((mail) => console.log(mail));
     closeDialog();
+    setMail("");
+    setAddList([]);
   };
 
   const handleCloseDialog = () => {
     closeDialog();
     setMail("");
+    setAddList([]);
   };
+
+  const handleAddList = () => {
+    (mail) && setAddList(prevState => [...prevState, mail]);
+    setMail("");
+  };
+
 
   useEffect(() => {
     setIsMailValid(validateMail(mail));
@@ -46,15 +56,38 @@ const AddFriendDialog = (
       <DialogContent>
         <DialogContentText>
           <Typography>Enter email address of friend which you would like to invite</Typography>
-          <InputLabel value={mail} setValue={setMail} label="mail" type="text"
-                      promptText="Enter email address"/>
+          <InputLabel
+            value={mail}
+            setValue={setMail}
+            label="mail"
+            type="text"
+            promptText="Enter email address"
+          />
         </DialogContentText>
       </DialogContent>
 
+      <Typography>
+        {addList.map(mail =>
+          <Typography
+            id={mail + Math.random()}
+            style={{textAlign: "center"}}>
+            {mail}
+          </Typography>)}
+      </Typography>
+
       <DialogActions>
         <CustomPrimaryButton
-          label="Send"
+          label="Add"
           disabled={!isMailValid}
+          clickButton={handleAddList}
+          additionalStyles={{
+            margin: "10px 15px"
+          }}
+        />
+
+        <CustomPrimaryButton
+          label="Send"
+          disabled={addList.length <= 0}
           clickButton={handleSendInvitation}
           additionalStyles={{
             margin: "10px 15px"

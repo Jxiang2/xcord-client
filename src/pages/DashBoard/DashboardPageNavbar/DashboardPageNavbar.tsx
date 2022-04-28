@@ -1,6 +1,7 @@
 import React from 'react';
-import {Button, styled, Typography} from "@mui/material";
+import {Button, styled} from "@mui/material";
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
+import {logout} from "../../../utils/auth";
 
 const MainContainer = styled("div")({
   position: "absolute",
@@ -16,13 +17,23 @@ const MainContainer = styled("div")({
 });
 
 const DashboardPageNavbar = () => {
+
   return (
     <MainContainer>
-      <Typography sx={{marginRight: "15px", color: "#8e9297"}}><EmojiPeopleIcon/></Typography>
+      <Button
+        style={{textDecoration: "none", marginRight: "15px", color: "#8e9297"}}
+      >
+        <EmojiPeopleIcon/>
+        My Profile
+      </Button>
 
-      <Button>Online</Button>
+      <Button
+        style={{marginLeft: "auto"}}
+        onClick={logout}
+      >
+        Logout
+      </Button>
 
-      <Button>All</Button>
     </MainContainer>
   );
 };
