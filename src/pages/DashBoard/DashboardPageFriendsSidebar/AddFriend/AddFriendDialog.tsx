@@ -67,7 +67,7 @@ const AddFriendDialog = (
       </DialogContent>
 
       <Typography>
-        {addList.map(mail =>
+        {addList && addList.map(mail =>
           <Typography
             id={mail + Math.random()}
             style={{textAlign: "center"}}>
