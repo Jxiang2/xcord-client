@@ -1,8 +1,8 @@
 import {styled} from "@mui/material";
-import DashboardPageSidebar from "./DashboardPageSidebar";
+import DashboardPageSidebar from "./DashboardPageSidebar/DashboardPageSidebar";
 import DashboardPageFriendsSidebar from "./DashboardPageFriendsSidebar/DashboardPageFriendsSidebar";
-import DashboardPageMessenger from "./DashboardPageMessenger";
-import DashboardPageNavbar from "./DashboardPageNavbar";
+import DashboardPageMessenger from "./DashboardPageMessenger/DashboardPageMessenger";
+import DashboardPageNavbar from "./DashboardPageNavbar/DashboardPageNavbar";
 
 const Wrapper = styled("div")({
   width: "100%",
