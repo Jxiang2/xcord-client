@@ -18,7 +18,7 @@ interface ICustomButton {
   label: string;
   additionalStyles?: { [k: string]: string | number };
   disabled?: boolean;
-  clickButton: () => void;
+  clickButton: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
 }
 
 interface ILoginInputForm {
@@ -31,7 +31,7 @@ interface ILoginInputForm {
 interface IRedirectInfo {
   text: string;
   redirectText: string;
-  additionalStyles: { [k: string]: string | number };
+  additionalStyles: React.CSSProperties;
   redirectHandler: () => void;
 }
 
