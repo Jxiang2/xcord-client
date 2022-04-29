@@ -15,8 +15,11 @@ const Wrapper = styled("div")({
   display: "flex",
 });
 
-const DashboardPage = ({setUserDetailsAction}: { setUserDetailsAction: (userDetails: object) => void }) => {
-
+const DashboardPage = (
+  {setUserDetailsAction}: {
+    setUserDetailsAction: (userDetails: null | { [k: string]: string | number }) => void
+  }
+) => {
   useEffect(() => {
     const userDetails = localStorage.getItem("user");
 
@@ -44,4 +47,5 @@ const DashboardPage = ({setUserDetailsAction}: { setUserDetailsAction: (userDeta
 const mapActionsToProps = (dispatch: Dispatch) => {
   return {...getActions(dispatch)};
 };
+
 export default connect(null, mapActionsToProps)(DashboardPage);
