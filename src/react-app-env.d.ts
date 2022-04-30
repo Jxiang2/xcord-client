@@ -2,7 +2,6 @@
 import React, {ReducerAction} from "react";
 import type {Action} from "@reduxjs/toolkit";
 
-
 interface ReactChildrenPropsType {
   children: React.ReactNode;
 }
