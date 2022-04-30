@@ -50,13 +50,18 @@ interface IAlertNotification {
   alertContent: null | { [k: string]: string };
 }
 
+type UserDetails = null | {
+  token: string;
+  [k: string]: string
+};
+
 interface IReduxState {
   alert: {
     showAlert: boolean;
     alertContent: null | { [k: string]: string };
   };
   auth: {
-    userDetails: null | { [k: string]: string }
+    userDetails: UserDetails;
   };
 }
 
@@ -101,7 +106,7 @@ interface IFriendItemPropsType {
   isOnline: boolean;
 }
 
-export {
+export type {
   ReactChildrenPropsType,
   IInputLabelPropsType,
   ILoginInputFormPropsType,
@@ -117,4 +122,5 @@ export {
   IReduxState,
   ILoginData,
   IRegisterData,
+  UserDetails,
 };

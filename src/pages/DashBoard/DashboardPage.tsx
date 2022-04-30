@@ -8,6 +8,7 @@ import {logout} from "../../utils/auth";
 import {Dispatch} from "@reduxjs/toolkit";
 import {getActions} from "../../store/actions/authActions";
 import {connect} from "react-redux";
+import {connectWithSocketServer} from "../../utils/socketConnection";
 
 const Wrapper = styled("div")({
   width: "100%",
@@ -26,8 +27,10 @@ const DashboardPage = (
     if (!userDetails) {
       logout();
     } else {
-      // keep login state
-      setUserDetailsAction((JSON.parse(userDetails)));
+      // keep login state & connect to socket.io
+      const parsedUserDetails = JSON.parse(userDetails);
+      setUserDetailsAction(parsedUserDetails);
+      connectWithSocketServer(parsedUserDetails);
     }
   }, [setUserDetailsAction]);
 
