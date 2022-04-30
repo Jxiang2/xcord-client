@@ -1,9 +1,14 @@
 import React from 'react';
 import {Button} from "@mui/material";
-import {ICustomButton} from "../react-app-env";
+import {ICustomButtonPropsType} from "../react-app-env";
 
-const CustomPrimaryButton = ({label, additionalStyles, disabled, clickButton}: ICustomButton) => {
-
+const CustomPrimaryButton = (
+  {
+    label,
+    additionalStyles,
+    disabled,
+    clickButton
+  }: ICustomButtonPropsType) => {
   return (
     <Button
       variant="contained"

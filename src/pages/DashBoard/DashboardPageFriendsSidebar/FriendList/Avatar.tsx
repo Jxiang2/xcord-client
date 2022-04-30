@@ -1,5 +1,6 @@
 import React from 'react';
 import {styled} from "@mui/material";
+import {IAvatarPropsType} from "../../../../react-app-env";
 
 const AvatarPreview = styled("div")({
   height: "42px",
@@ -15,7 +16,7 @@ const AvatarPreview = styled("div")({
   color: "white"
 });
 
-const Avatar = ({username, large}: { username: string, large?: string }) => {
+const Avatar = ({username, large}: IAvatarPropsType) => {
   return (
     <AvatarPreview style={large ? {height: "80px", width: "80px"} : {}}>
       {username.substring(0, 2)}

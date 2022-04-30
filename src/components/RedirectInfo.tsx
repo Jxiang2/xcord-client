@@ -1,15 +1,20 @@
 import React from 'react';
 import {styled, Typography} from "@mui/material";
-import {IRedirectInfo} from "../react-app-env";
+import {IRedirectInfoPropsType} from "../react-app-env";
 
-const RedirectInfo = ({text, redirectText, additionalStyles, redirectHandler}: IRedirectInfo) => {
+const RedirectText = styled("span")({
+  color: "#00AFF4",
+  fontWeight: 500,
+  cursor: "pointer"
+});
 
-  const RedirectText = styled("span")({
-    color: "#00AFF4",
-    fontWeight: 500,
-    cursor: "pointer"
-  });
-
+const RedirectInfo = (
+  {
+    text,
+    redirectText,
+    additionalStyles,
+    redirectHandler
+  }: IRedirectInfoPropsType) => {
   return (
     <Typography
       sx={{color: "#72767d"}}

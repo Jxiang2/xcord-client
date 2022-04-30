@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {IconButton, Tooltip, Typography} from "@mui/material";
 import Box from "@mui/material/Box";
 import Avatar from "../FriendList/Avatar";
-import {IPendingInvitationItem} from "../../../../react-app-env";
+import {IPendingInvitationItemPropsType} from "../../../../react-app-env";
 import CheckIcon from "@mui/icons-material/Check";
 import ClearIcon from "@mui/icons-material/Clear";
 
@@ -10,7 +10,7 @@ const PendingInvitationItem = (
   {
     id, username, mail,
     acceptInvite, rejectInvite
-  }: IPendingInvitationItem) => {
+  }: IPendingInvitationItemPropsType) => {
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const handleAcceptInvitation = () => {

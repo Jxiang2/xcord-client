@@ -1,6 +1,6 @@
 import React from 'react';
 import {styled} from "@mui/material";
-import {IInputLabel} from "../react-app-env";
+import {IInputLabelPropsType} from "../react-app-env";
 
 const Wrapper = styled("div")({
   display: "flex",
@@ -28,7 +28,7 @@ const Input = styled("input")({
   padding: "0 5px"
 });
 
-const InputLabel = (props: IInputLabel) => {
+const InputLabel = (props: IInputLabelPropsType) => {
   const {value, setValue, label, type, promptText} = props;
 
   const handleValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import InputLabel from "../../components/InputLabel";
-import {IRegisterInputForm} from "../../react-app-env";
+import {IRegisterInputFormPropsType} from "../../react-app-env";
 
 const RegisterPageInputForm =
   ({
@@ -10,7 +10,7 @@ const RegisterPageInputForm =
      setPassword,
      username,
      setUsername
-   }: IRegisterInputForm) => {
+   }: IRegisterInputFormPropsType) => {
     return (
       <>
         <InputLabel

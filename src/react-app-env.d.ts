@@ -1,12 +1,12 @@
 /// <reference types="react-scripts" />
-import React from "react";
-import {Action} from "@reduxjs/toolkit";
+import React, {ReducerAction} from "react";
+import type {Action} from "@reduxjs/toolkit";
 
-type ReactChildrenPropsType = {
+interface ReactChildrenPropsType {
   children: React.ReactNode;
-};
+}
 
-interface IInputLabel {
+interface IInputLabelPropsType {
   value: string;
   setValue: React.Dispatch<React.SetStateAction<string>>;
   label: string;
@@ -14,28 +14,28 @@ interface IInputLabel {
   promptText: string;
 }
 
-interface ICustomButton {
+interface ICustomButtonPropsType {
   label: string;
   additionalStyles?: { [k: string]: string | number };
   disabled?: boolean;
   clickButton: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
 }
 
-interface ILoginInputForm {
+interface ILoginInputFormPropsType {
   mail: string;
   setMail: React.Dispatch<React.SetStateAction<string>>;
   password: string;
   setPassword: React.Dispatch<React.SetStateAction<string>>;
 }
 
-interface IRedirectInfo {
+interface IRedirectInfoPropsType {
   text: string;
   redirectText: string;
   additionalStyles: React.CSSProperties;
   redirectHandler: () => void;
 }
 
-interface IRegisterInputForm {
+interface IRegisterInputFormPropsType {
   mail: string;
   setMail: React.Dispatch<React.SetStateAction<string>>;
   password: string;
@@ -45,18 +45,18 @@ interface IRegisterInputForm {
 }
 
 interface IAlertNotification {
-  showAlert?: boolean;
-  closeAlertMessageAction?: () => void;
-  alertContent?: any;
+  showAlert: boolean;
+  closeAlertMessageAction?: ReducerAction;
+  alertContent: null | { [k: string]: string };
 }
 
 interface IReduxState {
   alert: {
     showAlert: boolean;
-    alertContent: any;
+    alertContent: null | { [k: string]: string };
   };
   auth: {
-    userDetails: null | { [k: string]: string | number }
+    userDetails: null | { [k: string]: string }
   };
 }
 
@@ -76,13 +76,13 @@ interface IRegisterData {
   mail: string;
 }
 
-interface IAddFriendDialog {
+interface IAddFriendDialogPropsType {
   isDialogOpen: boolean;
   closeDialog: () => void;
   sendFriendInvitation: () => void;
 }
 
-interface IPendingInvitationItem {
+interface IPendingInvitationItemPropsType {
   id: string;
   username: string;
   mail: string;
@@ -90,18 +90,31 @@ interface IPendingInvitationItem {
   rejectInvite: ({id: string}) => void;
 }
 
+interface IAvatarPropsType {
+  username: string;
+  large?: string;
+}
+
+interface IFriendItemPropsType {
+  id: string;
+  username: string;
+  isOnline: boolean;
+}
+
 export {
   ReactChildrenPropsType,
-  IInputLabel,
-  ILoginInputForm,
-  ICustomButton,
-  IRedirectInfo,
-  IRegisterInputForm,
+  IInputLabelPropsType,
+  ILoginInputFormPropsType,
+  ICustomButtonPropsType,
+  IRedirectInfoPropsType,
+  IRegisterInputFormPropsType,
+  IAddFriendDialogPropsType,
+  IPendingInvitationItemPropsType,
+  IFriendItemPropsType,
+  IAvatarPropsType,
   IReduxAction,
   IAlertNotification,
   IReduxState,
   ILoginData,
   IRegisterData,
-  IAddFriendDialog,
-  IPendingInvitationItem
 };

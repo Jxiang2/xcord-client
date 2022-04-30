@@ -9,7 +9,7 @@ import {
   Typography
 } from "@mui/material";
 import InputLabel from "../../../../components/InputLabel";
-import {IAddFriendDialog} from "../../../../react-app-env";
+import {IAddFriendDialogPropsType} from "../../../../react-app-env";
 import CustomPrimaryButton from "../../../../components/CustomPrimaryButton";
 
 const AddFriendDialog = (
@@ -17,7 +17,7 @@ const AddFriendDialog = (
     isDialogOpen,
     closeDialog,
     sendFriendInvitation
-  }: IAddFriendDialog
+  }: IAddFriendDialogPropsType
 ) => {
   const [mail, setMail] = useState("");
   const [isMailValid, setIsMailValid] = useState(false);

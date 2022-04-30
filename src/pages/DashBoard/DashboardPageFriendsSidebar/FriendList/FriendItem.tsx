@@ -2,13 +2,14 @@ import React from 'react';
 import {Box, Button, Typography} from "@mui/material";
 import Avatar from "./Avatar";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import {IFriendItemPropsType} from "../../../../react-app-env";
 
 const FriendItem = (
   {
     id,
     username,
     isOnline
-  }: { id: string, username: string, isOnline: boolean }) => {
+  }: IFriendItemPropsType) => {
   return (
     <Button
       style={{

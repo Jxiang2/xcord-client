@@ -18,7 +18,6 @@ const friendList = [
     username: "Marc",
     isOnline: false
   },
-
 ];
 
 const FriendList = () => {
