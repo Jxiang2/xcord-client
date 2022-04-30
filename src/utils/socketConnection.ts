@@ -11,7 +11,6 @@ export const connectWithSocketServer = (userDetails: UserDetails) => {
 
   socket = io("http://localhost:8000", additionalInfo);
 
-
   // events
   socket.on("connect", () => console.log(socket, "connected to socket io server"));
 };
