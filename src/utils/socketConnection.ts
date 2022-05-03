@@ -9,6 +9,7 @@ export const connectWithSocketServer = (userDetails: UserDetails) => {
     auth: {token: userDetails?.token}
   };
 
+  // connecting to socket server on localhost:8000
   socket = io("http://localhost:8000", additionalInfo);
 
   // events
