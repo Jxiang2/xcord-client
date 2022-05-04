@@ -8,13 +8,14 @@ export const alertActions = {
 export const getActions = (dispatch: Dispatch) => {
   return {
     openAlertMessageAction:
-      (content: string) => dispatch(openAlertMessage(content)),
+      (message: { message: string }) => dispatch(openAlertMessage(message)),
     closeAlertMessageAction:
       () => dispatch(closeAlertMessage()),
   };
 };
 
-export const openAlertMessage = (content: string) => {
+export const openAlertMessage = (content: { message: string }) => {
+  console.log(content);
   return {
     type: alertActions.OPEN_ALERT_MESSAGE,
     payload: content

@@ -29,7 +29,7 @@ const AddFriendDialog = (
   const handleSendInvitation = () => {
     addList.forEach((mail) => {
       console.log(mail);
-      sendFriendInviteAction && sendFriendInviteAction({mail: mail}, handleCloseDialog);
+      sendFriendInviteAction && sendFriendInviteAction({targetMail: mail}, handleCloseDialog);
     });
     setMail("");
     setAddList([]);

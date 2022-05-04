@@ -11,19 +11,19 @@ export const friendsActions = {
 export const getActions = (dispatch: Dispatch<any>) => {
   return {
     sendFriendInviteAction:
-      (data: { mail: string }, closeDialogHandler: () => void) => dispatch(sendFriendInvite(data, closeDialogHandler))
+      (data: { targetMail: string }, handleCloseDialog: () => void) => dispatch(sendFriendInvite(data, handleCloseDialog))
   };
 };
 
-const sendFriendInvite = (data: { mail: string }, closeDialogHandler: () => void) => {
+const sendFriendInvite = (data: { targetMail: string }, handleCloseDialog: () => void) => {
   return async (dispatch: Dispatch) => {
     const response: any = await api.sendFriendInvite(data);
 
     if (response?.error) {
       dispatch(openAlertMessage(response.exception?.response?.data));
     } else {
-      dispatch(openAlertMessage("Invitation has been sent"));
-      closeDialogHandler();
+      dispatch(openAlertMessage({message: "Invitation has been sent"}));
+      handleCloseDialog();
     }
   };
 };

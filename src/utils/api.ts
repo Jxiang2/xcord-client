@@ -47,9 +47,9 @@ const register = async (registerData: IRegisterData) => {
 };
 
 // secure roots
-const sendFriendInvite = async (data: { mail: string }) => {
+const sendFriendInvite = async (data: { targetMail: string }) => {
   try {
-    return await apiClient.post("/friend-invitation/invite", data);
+    return await apiClient.post("/friend-invite/invite", data);
   } catch (e) {
     checkResponseCode(e);
     return {error: true, e};
