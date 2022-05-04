@@ -23,7 +23,6 @@ const AddFriendButton = () => {
       <AddFriendDialog
         isDialogOpen={isDialogOpen}
         closeDialog={() => setIsDialogOpen(false)}
-        sendFriendInvitation={() => console.log("hello")}
       />
     </>
   );

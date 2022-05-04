@@ -20,6 +20,14 @@ apiClient.interceptors.request.use((config) => {
   (error) => Promise.reject(error)
 );
 
+const checkResponseCode = (exception: AxiosError) => {
+  const responseCode = exception?.response?.status;
+  if (responseCode) {
+    (responseCode === 401 || responseCode === 403) && logout();
+  }
+};
+
+// unsecure roots
 const login = async (loginData: ILoginData) => {
   try {
     return await apiClient.post("/auth/login", loginData);
@@ -38,12 +46,15 @@ const register = async (registerData: IRegisterData) => {
   }
 };
 
-const checkResponseCode = (exception: AxiosError) => {
-  const responseCode = exception?.response?.status;
-  if (responseCode) {
-    (responseCode === 401 || responseCode === 403) && logout();
+// secure roots
+const sendFriendInvite = async (data: { mail: string }) => {
+  try {
+    return await apiClient.post("/friend-invitation/invite", data);
+  } catch (e) {
+    checkResponseCode(e);
+    return {error: true, e};
   }
 };
 
-const api = {login, register};
+const api = {login, register, sendFriendInvite};
 export default api;

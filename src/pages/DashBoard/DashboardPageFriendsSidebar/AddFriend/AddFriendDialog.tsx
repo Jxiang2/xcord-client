@@ -1,5 +1,3 @@
-import React, {useEffect, useState} from 'react';
-import {validateMail} from "../../../../utils/validators";
 import {
   Dialog,
   DialogActions,
@@ -8,15 +6,20 @@ import {
   DialogTitle,
   Typography
 } from "@mui/material";
+import React, {useEffect, useState} from 'react';
+import {validateMail} from "../../../../utils/validators";
 import InputLabel from "../../../../components/InputLabel";
 import {IAddFriendDialogPropsType} from "../../../../react-app-env";
 import CustomPrimaryButton from "../../../../components/CustomPrimaryButton";
+import {Dispatch} from "@reduxjs/toolkit";
+import {getActions} from "../../../../store/actions/friendsActions";
+import {connect} from "react-redux";
 
 const AddFriendDialog = (
   {
     isDialogOpen,
     closeDialog,
-    sendFriendInvitation
+    sendFriendInviteAction
   }: IAddFriendDialogPropsType
 ) => {
   const [mail, setMail] = useState("");
@@ -24,9 +27,10 @@ const AddFriendDialog = (
   const [addList, setAddList] = useState<string[]>([]);
 
   const handleSendInvitation = () => {
-    // send friend request to server
-    addList.forEach((mail) => console.log(mail));
-    closeDialog();
+    addList.forEach((mail) => {
+      console.log(mail);
+      sendFriendInviteAction && sendFriendInviteAction({mail: mail}, handleCloseDialog);
+    });
     setMail("");
     setAddList([]);
   };
@@ -41,7 +45,6 @@ const AddFriendDialog = (
     (mail) && setAddList(prevState => [...prevState, mail]);
     setMail("");
   };
-
 
   useEffect(() => {
     setIsMailValid(validateMail(mail));
@@ -98,4 +101,8 @@ const AddFriendDialog = (
   );
 };
 
-export default AddFriendDialog;
+const mapActionsToProps = (dispatch: Dispatch) => {
+  return {...getActions(dispatch)};
+};
+
+export default connect(null, mapActionsToProps)(AddFriendDialog);

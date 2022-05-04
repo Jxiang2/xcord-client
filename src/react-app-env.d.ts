@@ -86,7 +86,7 @@ export interface IRegisterData {
 export interface IAddFriendDialogPropsType {
   isDialogOpen: boolean;
   closeDialog: () => void;
-  sendFriendInvitation: () => void;
+  sendFriendInviteAction?: (data: { mail: string }, handleCloseDialog: () => void) => void;
 }
 
 export interface IPendingInvitationItemPropsType {

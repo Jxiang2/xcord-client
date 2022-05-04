@@ -11,7 +11,6 @@ const AlertNotification = (
     closeAlertMessageAction,
     alertContent
   }: IAlertNotification) => {
-  console.log(alertContent);
   return (
     <Snackbar
       anchorOrigin={{vertical: "bottom", horizontal: "center"}}
