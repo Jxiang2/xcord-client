@@ -52,7 +52,7 @@ const sendFriendInvite = async (data: { targetMail: string }) => {
     return await apiClient.post("/friend-invite/invite", data);
   } catch (e) {
     checkResponseCode(e);
-    return {error: true, e};
+    return {error: true, exception: e};
   }
 };
 
