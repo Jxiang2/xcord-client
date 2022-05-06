@@ -11,7 +11,14 @@ export const friendsActions = {
 export const getActions = (dispatch: Dispatch<any>) => {
   return {
     sendFriendInviteAction:
-      (data: { targetMail: string }, handleCloseDialog: () => void) => dispatch(sendFriendInvite(data, handleCloseDialog))
+      (data: { targetMail: string }, handleCloseDialog: () => void) => dispatch(sendFriendInvite(data, handleCloseDialog)),
+  };
+};
+
+export const setPendingFriendsInvite = (pendingFriendsInvites: any) => {
+  return {
+    type: friendsActions.SET_PENDING_FRIENDS_INVITES,
+    payload: pendingFriendsInvites
   };
 };
 
