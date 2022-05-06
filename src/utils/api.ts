@@ -3,7 +3,7 @@ import {logout} from "./auth";
 import {ILoginData, IRegisterData} from "../react-app-env";
 
 const apiClient = axios.create({
-  baseURL: "http://127.0.0.1:8000/api",
+  baseURL: "http://127.0.0.1:8080/api",
   timeout: 1000
 });
 

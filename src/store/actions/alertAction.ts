@@ -15,7 +15,6 @@ export const getActions = (dispatch: Dispatch) => {
 };
 
 export const openAlertMessage = (content: { message: string }) => {
-  console.log(content);
   return {
     type: alertActions.OPEN_ALERT_MESSAGE,
     payload: content
