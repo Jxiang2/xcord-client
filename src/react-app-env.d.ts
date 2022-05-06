@@ -107,3 +107,13 @@ export interface IFriendItemPropsType {
   username: string;
   isOnline: boolean;
 }
+
+interface pendingInvite {
+  receiverId: string;
+  senderId: { _id: string, mail: string, username: string };
+  _id: string;
+}
+
+export interface IPendingInvitationListPropsType {
+  pendingFriendsInvites?: pendingInvite[];
+}

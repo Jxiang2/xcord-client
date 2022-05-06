@@ -1,23 +1,8 @@
 import React from 'react';
 import {styled} from "@mui/material";
 import PendingInvitationItem from "./PendingInvitationItem";
-
-const invitations = [
-  {
-    _id: "1",
-    senderId: {
-      username: "Tim",
-      mail: "dummy1@ad.com"
-    }
-  },
-  {
-    _id: "2",
-    senderId: {
-      username: "Jack",
-      mail: "dummy2@ad.com"
-    }
-  }
-];
+import {connect} from "react-redux";
+import {IPendingInvitationListPropsType} from "../../../../react-app-env";
 
 const MainContainer = styled("div")({
   width: "100%",
@@ -28,18 +13,18 @@ const MainContainer = styled("div")({
   overflow: "auto"
 });
 
-const PendingInvitationList = () => {
+const PendingInvitationList = ({pendingFriendsInvites}: IPendingInvitationListPropsType) => {
   const acceptInvite = () => {
     console.log("accepted");
-  }
+  };
 
   const rejectInvite = () => {
     console.log("rejected");
-  }
+  };
 
   return (
     <MainContainer>
-      {invitations.map(inv => (
+      {pendingFriendsInvites?.map(inv => (
         <PendingInvitationItem
           key={inv._id}
           id={inv._id}
@@ -53,4 +38,9 @@ const PendingInvitationList = () => {
   );
 };
 
-export default PendingInvitationList;
+const mapStoreStateToProps = ({friends}: any) => {
+  return {
+    ...friends
+  };
+};
+export default connect(mapStoreStateToProps, null)(PendingInvitationList);
