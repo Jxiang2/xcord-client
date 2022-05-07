@@ -1,7 +1,7 @@
 import {Dispatch} from "@reduxjs/toolkit";
 import {openAlertMessage} from "./alertAction";
 import api from "../../utils/api";
-import {IPendingInvite} from "../../react-app-env";
+import {Friends, IPendingInvite} from "../../react-app-env";
 
 export const friendsActions = {
   SET_FRIENDS: "FRIENDS.SET_FRIENDS",
@@ -53,7 +53,8 @@ export const setPendingFriendsInvites = (pendingFriendsInvites: IPendingInvite[]
   };
 };
 
-export const setFriends = (friends: any) => {
+export const setFriends = (friends: Friends) => {
+  console.log(friends);
   return {
     type: friendsActions.SET_FRIENDS,
     payload: friends
