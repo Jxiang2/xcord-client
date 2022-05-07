@@ -35,6 +35,7 @@ const acceptFriendInvite = (data: { id: string }) => {
 const rejectFriendInvite = (data: { id: string }) => {
   return async (dispatch: Dispatch) => {
     const response: any = await api.rejectFriendInvite(data);
+    console.log(response);
 
     if (response?.error) {
       dispatch(openAlertMessage({message: response.exception?.response?.data}));
