@@ -5,21 +5,24 @@ import Avatar from "../FriendList/Avatar";
 import {IPendingInvitationItemPropsType} from "../../../../react-app-env";
 import CheckIcon from "@mui/icons-material/Check";
 import ClearIcon from "@mui/icons-material/Clear";
+import {Dispatch} from "@reduxjs/toolkit";
+import {getActions} from "../../../../store/actions/friendsActions";
+import {connect} from "react-redux";
 
 const PendingInvitationItem = (
   {
     id, username, mail,
-    acceptInvite, rejectInvite
+    acceptFriendInviteAction, rejectFriendInviteAction
   }: IPendingInvitationItemPropsType) => {
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
   const handleAcceptInvitation = () => {
-    acceptInvite({id});
+    acceptFriendInviteAction && acceptFriendInviteAction({id});
     setButtonDisabled(true);
   };
 
   const handleRejectInvitation = () => {
-    rejectInvite({id});
+    rejectFriendInviteAction && rejectFriendInviteAction({id});
     setButtonDisabled(true);
   };
 
@@ -72,4 +75,10 @@ const PendingInvitationItem = (
   );
 };
 
-export default PendingInvitationItem;
+const mapActionsToProps = (dispatch: Dispatch) => {
+  return {
+    ...getActions(dispatch)
+  };
+};
+
+export default connect(null, mapActionsToProps)(PendingInvitationItem);

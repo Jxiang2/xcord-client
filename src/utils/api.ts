@@ -56,5 +56,23 @@ const sendFriendInvite = async (data: { targetMail: string }) => {
   }
 };
 
-const api = {login, register, sendFriendInvite};
+const acceptFriendInvite = async (data: { id: string }) => {
+  try {
+    return await apiClient.post("/friend-invite/accept", data);
+  } catch (e) {
+    checkResponseCode(e);
+    return {error: true, exception: e};
+  }
+};
+
+const rejectFriendInvite = async (data: { id: string }) => {
+  try {
+    return await apiClient.post("/friend-invite/reject", data);
+  } catch (e) {
+    checkResponseCode(e);
+    return {error: true, exception: e};
+  }
+};
+
+const api = {login, register, sendFriendInvite, acceptFriendInvite, rejectFriendInvite};
 export default api;

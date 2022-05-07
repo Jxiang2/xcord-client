@@ -14,14 +14,6 @@ const MainContainer = styled("div")({
 });
 
 const PendingInvitationList = ({pendingFriendsInvites}: IPendingInvitationListPropsType) => {
-  const acceptInvite = () => {
-    console.log("accepted");
-  };
-
-  const rejectInvite = () => {
-    console.log("rejected");
-  };
-
   return (
     <MainContainer>
       {pendingFriendsInvites?.map(inv => (
@@ -30,8 +22,6 @@ const PendingInvitationList = ({pendingFriendsInvites}: IPendingInvitationListPr
           id={inv._id}
           username={inv.senderId.username}
           mail={inv.senderId.mail}
-          acceptInvite={acceptInvite}
-          rejectInvite={rejectInvite}
         />
       ))}
     </MainContainer>
@@ -43,4 +33,5 @@ const mapStoreStateToProps = ({friends}: any) => {
     ...friends
   };
 };
+
 export default connect(mapStoreStateToProps, null)(PendingInvitationList);

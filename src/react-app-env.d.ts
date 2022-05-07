@@ -93,8 +93,8 @@ export interface IPendingInvitationItemPropsType {
   id: string;
   username: string;
   mail: string;
-  acceptInvite: ({id: string}) => void;
-  rejectInvite: ({id: string}) => void;
+  acceptFriendInviteAction?: ({id: string}) => void;
+  rejectFriendInviteAction?: ({id: string}) => void;
 }
 
 export interface IAvatarPropsType {
