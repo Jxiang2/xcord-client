@@ -8,6 +8,9 @@ type UserDetails = null | {
   [k: string]: string
 };
 
+type Friends = any[]
+
+
 // interfaces
 export interface ReactChildrenPropsType {
   children: React.ReactNode;
@@ -69,7 +72,9 @@ export interface IReduxState {
 
 export interface IReduxAction extends Action {
   type: string;
-  payload: { [k: string]: string | number | object | boolean };
+  payload:
+    | { [k: string]: string | number | object | boolean }
+    | IPendingInvite[];
 }
 
 export interface ILoginData {
@@ -108,12 +113,16 @@ export interface IFriendItemPropsType {
   isOnline: boolean;
 }
 
-interface pendingInvite {
+export interface IPendingInvite {
   receiverId: string;
   senderId: { _id: string, mail: string, username: string };
   _id: string;
 }
 
 export interface IPendingInvitationListPropsType {
-  pendingFriendsInvites?: pendingInvite[];
+  pendingFriendsInvites?: IPendingInvite[];
+}
+
+export interface IFriendsListPropsType {
+  friends?: Friends;
 }
