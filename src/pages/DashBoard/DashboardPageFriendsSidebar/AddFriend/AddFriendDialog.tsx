@@ -26,15 +26,6 @@ const AddFriendDialog = (
   const [isMailValid, setIsMailValid] = useState(false);
   const [addList, setAddList] = useState<string[]>([]);
 
-  const handleSendInvitation = () => {
-    addList.forEach((mail) => {
-      console.log(mail);
-      sendFriendInviteAction && sendFriendInviteAction({targetMail: mail}, handleCloseDialog);
-    });
-    setMail("");
-    setAddList([]);
-  };
-
   const handleCloseDialog = () => {
     closeDialog();
     setMail("");
@@ -44,6 +35,14 @@ const AddFriendDialog = (
   const handleAddList = () => {
     (mail) && setAddList(prevState => [...prevState, mail]);
     setMail("");
+  };
+
+  const handleSendInvitation = async () => {
+    await addList.forEach((mail) => {
+      sendFriendInviteAction && sendFriendInviteAction({targetMail: mail});
+    });
+    setMail("");
+    setAddList([]);
   };
 
   useEffect(() => {
