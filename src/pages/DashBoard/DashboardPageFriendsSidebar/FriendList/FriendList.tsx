@@ -10,6 +10,7 @@ const MainContainer = styled("div")({
 });
 
 const FriendList = ({friends}: IFriendsListPropsType) => {
+  console.log(friends);
   return (
     <MainContainer>
       {friends?.map(f => (
@@ -24,7 +25,7 @@ const FriendList = ({friends}: IFriendsListPropsType) => {
   );
 };
 
-const mapStoreStateToProps = ({friends}: { friends: any[] }) => {
+const mapStoreStateToProps = ({friends}: IFriendsListPropsType) => {
   return {
     ...friends,
   };

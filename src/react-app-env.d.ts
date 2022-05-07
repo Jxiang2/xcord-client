@@ -5,13 +5,20 @@ import type {Action} from "@reduxjs/toolkit";
 // types
 type UserDetails = null | {
   token: string;
-  [k: string]: string
+  [k: string]: stringf
 };
 
-type Friends = any[]
+type Friends = IFriendProperty[]
 
 
 // interfaces
+export interface IFriendProperty {
+  id: string,
+  mail: string,
+  username: string
+  isOnline?: boolean
+}
+
 export interface ReactChildrenPropsType {
   children: React.ReactNode;
 }
@@ -110,7 +117,7 @@ export interface IAvatarPropsType {
 export interface IFriendItemPropsType {
   id: string;
   username: string;
-  isOnline: boolean;
+  isOnline?: boolean;
 }
 
 export interface IPendingInvite {
