@@ -5,10 +5,12 @@ import type {Action} from "@reduxjs/toolkit";
 // types
 type UserDetails = null | {
   token: string;
-  [k: string]: stringf
+  [k: string]: string
 };
 
 type Friends = IFriendProperty[]
+
+type OnlineUsers = IOnlineUserProperty[]
 
 
 // interfaces
@@ -17,6 +19,11 @@ export interface IFriendProperty {
   mail: string,
   username: string
   isOnline?: boolean
+}
+
+export interface IOnlineUserProperty {
+  socketId: string,
+  userId: string
 }
 
 export interface ReactChildrenPropsType {
@@ -133,4 +140,5 @@ export interface IPendingInvitationListPropsType {
 
 export interface IFriendsListPropsType {
   friends?: Friends;
+  onlineUsers?: OnlineUsers;
 }

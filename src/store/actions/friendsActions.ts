@@ -20,6 +20,27 @@ export const getActions = (dispatch: Dispatch<any>) => {
   };
 };
 
+export const setPendingFriendsInvites = (pendingFriendsInvites: IPendingInvite[]) => {
+  return {
+    type: friendsActions.SET_PENDING_FRIENDS_INVITES,
+    payload: pendingFriendsInvites
+  };
+};
+
+export const setFriends = (friends: Friends) => {
+  return {
+    type: friendsActions.SET_FRIENDS,
+    payload: friends
+  };
+};
+
+export const setOnlineUsers = (onlineUsers: any) => {
+  return {
+    type: friendsActions.SET_ONLINE_USERS,
+    payload: onlineUsers
+  };
+};
+
 const acceptFriendInvite = (data: { id: string }) => {
   return async (dispatch: Dispatch) => {
     const response: any = await api.acceptFriendInvite(data);
@@ -36,28 +57,12 @@ const acceptFriendInvite = (data: { id: string }) => {
 const rejectFriendInvite = (data: { id: string }) => {
   return async (dispatch: Dispatch) => {
     const response: any = await api.rejectFriendInvite(data);
-    console.log(response);
 
     if (response?.error) {
       dispatch(openAlertMessage(response.exception?.response?.data));
     } else {
       dispatch(openAlertMessage({message: "Invitation rejected"}));
     }
-  };
-};
-
-export const setPendingFriendsInvites = (pendingFriendsInvites: IPendingInvite[]) => {
-  return {
-    type: friendsActions.SET_PENDING_FRIENDS_INVITES,
-    payload: pendingFriendsInvites
-  };
-};
-
-export const setFriends = (friends: Friends) => {
-  console.log(friends);
-  return {
-    type: friendsActions.SET_FRIENDS,
-    payload: friends
   };
 };
 
