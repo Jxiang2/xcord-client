@@ -3,15 +3,20 @@ import {Box, Button, Typography} from "@mui/material";
 import Avatar from "./Avatar";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import {IFriendItemPropsType} from "../../../../react-app-env";
+import {chatTypes, getActions} from "../../../../store/actions/chatActions";
+import {connect} from "react-redux";
+import {Dispatch} from "@reduxjs/toolkit";
 
-const FriendItem = (
-  {
-    id,
-    username,
-    isOnline
-  }: IFriendItemPropsType) => {
+const FriendItem = ({id, username, isOnline, setChosenChatDetailsAction}: IFriendItemPropsType) => {
+  const handleChooseActiveConversation = () => {
+    if (setChosenChatDetailsAction) {
+      setChosenChatDetailsAction({id: id, name: username}, chatTypes.DIRECT);
+    }
+  };
+
   return (
     <Button
+      onClick={handleChooseActiveConversation}
       style={{
         width: "100%",
         height: "42px",
@@ -48,4 +53,10 @@ const FriendItem = (
   );
 };
 
-export default FriendItem;
+const mapActionsToProps = (dispatch: Dispatch) => {
+  return {
+    ...getActions(dispatch)
+  };
+};
+
+export default connect(null, mapActionsToProps)(FriendItem);

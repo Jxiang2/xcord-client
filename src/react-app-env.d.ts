@@ -14,6 +14,7 @@ type OnlineUsers = IOnlineUserProperty[]
 
 
 // interfaces
+
 export interface IFriendProperty {
   id: string,
   mail: string,
@@ -82,6 +83,11 @@ export interface IReduxState {
   auth: {
     userDetails: UserDetails;
   };
+  chat: {
+    chosenChatDetails: { id: string, name: string }
+    chatType: string,
+    messages: []
+  };
 }
 
 export interface IReduxAction extends Action {
@@ -89,7 +95,14 @@ export interface IReduxAction extends Action {
   payload:
     | { [k: string]: string | number | object | boolean }
     | IFriendProperty[]
-    | IPendingInvite[];
+    | IPendingInvite[]
+    | IOnlineUserProperty[];
+}
+
+export interface IChatReduxAction extends Action {
+  chatDetails: any,
+  chatType: string,
+  messages: Array<any>
 }
 
 export interface ILoginData {
@@ -126,6 +139,10 @@ export interface IFriendItemPropsType {
   id: string;
   username: string;
   isOnline?: boolean;
+  setChosenChatDetailsAction?: (details: {
+    id: string,
+    name: string
+  }, chatType: string) => void;
 }
 
 export interface IPendingInvite {
@@ -141,4 +158,15 @@ export interface IPendingInvitationListPropsType {
 export interface IFriendsListPropsType {
   friends?: Friends;
   onlineUsers?: OnlineUsers;
+}
+
+export interface IChosenOptionLabelPropsType {
+  name?: string;
+}
+
+export interface IMessengerPropsType {
+  chosenChatDetails?: {
+    id: string,
+    name: string
+  };
 }

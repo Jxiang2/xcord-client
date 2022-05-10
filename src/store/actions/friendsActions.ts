@@ -1,7 +1,7 @@
 import {Dispatch} from "@reduxjs/toolkit";
 import {openAlertMessage} from "./alertAction";
 import api from "../../utils/api";
-import {Friends, IPendingInvite} from "../../react-app-env";
+import {Friends, IOnlineUserProperty, IPendingInvite} from "../../react-app-env";
 
 export const friendsActions = {
   SET_FRIENDS: "FRIENDS.SET_FRIENDS",
@@ -34,7 +34,7 @@ export const setFriends = (friends: Friends) => {
   };
 };
 
-export const setOnlineUsers = (onlineUsers: any) => {
+export const setOnlineUsers = (onlineUsers: Array<IOnlineUserProperty>) => {
   return {
     type: friendsActions.SET_ONLINE_USERS,
     payload: onlineUsers

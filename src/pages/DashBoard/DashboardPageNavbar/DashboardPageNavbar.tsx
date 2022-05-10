@@ -2,6 +2,7 @@ import React from 'react';
 import {Button, styled} from "@mui/material";
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
 import {logout} from "../../../utils/auth";
+import ChosenOptionLabel from "./ChosenOptionLabel";
 
 const MainContainer = styled("div")({
   position: "absolute",
@@ -24,8 +25,9 @@ const DashboardPageNavbar = () => {
         style={{textDecoration: "none", marginRight: "15px", color: "#8e9297"}}
       >
         <EmojiPeopleIcon/>
-        My Profile
       </Button>
+
+      <ChosenOptionLabel/>
 
       <Button
         style={{marginLeft: "auto"}}

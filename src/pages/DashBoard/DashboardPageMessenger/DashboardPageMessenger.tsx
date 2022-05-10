@@ -1,5 +1,9 @@
 import React from 'react';
 import {styled} from "@mui/material";
+import {connect} from "react-redux";
+import {IMessengerPropsType, IReduxState} from "../../../react-app-env";
+import WelcomeMessage from "./WelcomeMessage";
+import MessengerContent from "./Messenger/MessengerContent";
 
 const MainContainer = styled("div")({
   flexGrow: 1,
@@ -8,12 +12,19 @@ const MainContainer = styled("div")({
   display: "flex"
 });
 
-const DashboardPageMessenger = () => {
+const DashboardPageMessenger = ({chosenChatDetails}: IMessengerPropsType) => {
   return (
     <MainContainer>
-
+      {!chosenChatDetails ? <WelcomeMessage/> :
+        <MessengerContent chosenChatDetails={chosenChatDetails}/>}
     </MainContainer>
   );
 };
 
-export default DashboardPageMessenger;
+const mapStoreStateToProps = (state: IReduxState) => {
+  return {
+    ...state.chat
+  };
+};
+
+export default connect(mapStoreStateToProps, null)(DashboardPageMessenger);
