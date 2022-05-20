@@ -8,7 +8,7 @@ const MainContainer = styled("div")({
   marginTop: "10px"
 });
 
-const MessagesHeader = ({name = ""}) => {
+const MessagesHeader = () => {
   return (
     <MainContainer>
       <Typography

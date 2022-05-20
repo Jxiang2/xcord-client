@@ -69,7 +69,8 @@ const MainContainer = styled("div")({
 const Messages = ({chosenChatDetails, messages}: IMessagesPropType) => {
   return (
     <MainContainer>
-      <MessagesHeader name={chosenChatDetails?.name}/>
+      <MessagesHeader/>
+
       {DUMMY_MESSAGES.map((message, index) => {
         return <SingleMessage
           key={message._id}
