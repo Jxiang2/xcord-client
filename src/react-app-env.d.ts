@@ -86,7 +86,7 @@ export interface IReduxState {
   chat: {
     chosenChatDetails: { id: string, name: string }
     chatType: string,
-    messages: []
+    messages: Array<any>
   };
 }
 
@@ -100,7 +100,7 @@ export interface IReduxAction extends Action {
 }
 
 export interface IChatReduxAction extends Action {
-  chatDetails: any,
+  chatDetails: { id: string, name: string },
   chatType: string,
   messages: Array<any>
 }
@@ -169,4 +169,17 @@ export interface IMessengerPropsType {
     id: string,
     name: string
   };
+}
+
+export interface IMessagesPropType {
+  chosenChatDetails?: { id: string, name: string },
+  messages?: Array<any>
+}
+
+export interface ISingleMessagePropType {
+  content: string;
+  username: string;
+  sameAuthor: boolean | string;
+  date: string;
+  sameDay: boolean;
 }

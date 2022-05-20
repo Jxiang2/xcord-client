@@ -8,7 +8,7 @@ const ChosenOptionLabel = ({name}: IChosenOptionLabelPropsType) => {
     <Typography
       sx={{fontSize: "16px", color: "white", fontWeight: "bold"}}
     >
-      {`${name ? name : ""}`}
+      {`Chosen Conversation: ${name ? name : ""}`}
     </Typography>
   );
 };
