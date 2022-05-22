@@ -12,6 +12,11 @@ type Friends = IFriendProperty[]
 
 type OnlineUsers = IOnlineUserProperty[]
 
+export type ChosenChatDetails = {
+  id: string,
+  name: string
+}
+
 
 // interfaces
 
@@ -165,10 +170,7 @@ export interface IChosenOptionLabelPropsType {
 }
 
 export interface IMessengerPropsType {
-  chosenChatDetails?: {
-    id: string,
-    name: string
-  };
+  chosenChatDetails?: ChosenChatDetails;
 }
 
 export interface IMessagesPropType {
@@ -182,4 +184,8 @@ export interface ISingleMessagePropType {
   sameAuthor: boolean | string;
   date: string;
   sameDay: boolean;
+}
+
+export interface IMessagesInputPropsType {
+  chosenChatDetails?: ChosenChatDetails;
 }
