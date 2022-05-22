@@ -189,3 +189,11 @@ export interface ISingleMessagePropType {
 export interface IMessagesInputPropsType {
   chosenChatDetails?: ChosenChatDetails;
 }
+
+export interface IDirectMessageData {
+  content: string,
+  receiverUserId: {
+    id: string,
+    name: string
+  }
+}

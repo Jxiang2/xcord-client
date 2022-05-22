@@ -1,6 +1,6 @@
 import type {Socket} from "socket.io-client";
 import io from "socket.io-client";
-import {UserDetails} from "../react-app-env";
+import {IDirectMessageData, UserDetails} from "../react-app-env";
 import store from "../store/store";
 import {
   setFriends,
@@ -38,7 +38,7 @@ export const connectWithSocketServer = (userDetails: UserDetails) => {
 };
 
 // client emitters
-export const sendDirectMessage = (data: any) => {
+export const sendDirectMessage = (data: IDirectMessageData) => {
   console.log(data);
   socket?.emit("direct-message", data);
 };
