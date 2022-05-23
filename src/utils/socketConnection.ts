@@ -11,15 +11,15 @@ import {
 let socket: Socket | null = null;
 
 export const connectWithSocketServer = (userDetails: UserDetails) => {
-  const additionalInfo = {
-    auth: {token: userDetails?.token}
-  };
+  const additionalInfo = {auth: {token: userDetails?.token}};
 
   // connecting to socket server on localhost:8000
   socket = io("http://localhost:8080", additionalInfo);
 
   // events
-  socket.on("connect", () => console.log(socket, "connected to socket io server"));
+  socket.on("connect", () => {
+    console.log(socket, "connected to socket io server");
+  });
 
   socket.on("friends-invitations", (data) => {
     const {pendingInvites} = data;
