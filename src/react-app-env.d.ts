@@ -17,8 +17,14 @@ export type ChosenChatDetails = {
   name: string
 }
 
-
 // interfaces
+export interface IDirectMessageData {
+  content: string,
+  receiverUserId: {
+    id: string,
+    name: string
+  }
+}
 
 export interface IFriendProperty {
   id: string,
@@ -30,54 +36,6 @@ export interface IFriendProperty {
 export interface IOnlineUserProperty {
   socketId: string,
   userId: string
-}
-
-export interface ReactChildrenPropsType {
-  children: React.ReactNode;
-}
-
-export interface IInputLabelPropsType {
-  value: string;
-  setValue: React.Dispatch<React.SetStateAction<string>>;
-  label: string;
-  type: string;
-  promptText: string;
-}
-
-export interface ICustomButtonPropsType {
-  label: string;
-  additionalStyles?: { [k: string]: string | number };
-  disabled?: boolean;
-  clickButton: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
-}
-
-export interface ILoginInputFormPropsType {
-  mail: string;
-  setMail: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export interface IRedirectInfoPropsType {
-  text: string;
-  redirectText: string;
-  additionalStyles: React.CSSProperties;
-  redirectHandler: () => void;
-}
-
-export interface IRegisterInputFormPropsType {
-  mail: string;
-  setMail: React.Dispatch<React.SetStateAction<string>>;
-  password: string;
-  setPassword: React.Dispatch<React.SetStateAction<string>>;
-  username: string;
-  setUsername: React.Dispatch<React.SetStateAction<string>>;
-}
-
-export interface IAlertNotification {
-  showAlert: boolean;
-  closeAlertMessageAction?: ReducerAction;
-  alertContent: null | { [k: string]: string };
 }
 
 export interface IReduxState {
@@ -121,6 +79,61 @@ export interface IRegisterData {
   mail: string;
 }
 
+export interface IPendingInvite {
+  receiverId: string;
+  senderId: { _id: string, mail: string, username: string };
+  _id: string;
+}
+
+// interface props
+export interface ReactChildrenPropsType {
+  children: React.ReactNode;
+}
+
+export interface IInputLabelPropsType {
+  value: string;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
+  label: string;
+  type: string;
+  promptText: string;
+}
+
+export interface ICustomButtonPropsType {
+  label: string;
+  additionalStyles?: { [k: string]: string | number };
+  disabled?: boolean;
+  clickButton: ((event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void) | undefined;
+}
+
+export interface ILoginInputFormPropsType {
+  mail: string;
+  setMail: React.Dispatch<React.SetStateAction<string>>;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export interface IRedirectInfoPropsType {
+  text: string;
+  redirectText: string;
+  additionalStyles: React.CSSProperties;
+  redirectHandler: () => void;
+}
+
+export interface IRegisterInputFormPropsType {
+  mail: string;
+  setMail: React.Dispatch<React.SetStateAction<string>>;
+  password: string;
+  setPassword: React.Dispatch<React.SetStateAction<string>>;
+  username: string;
+  setUsername: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export interface IAlertNotificationPropsType {
+  showAlert: boolean;
+  closeAlertMessageAction?: ReducerAction;
+  alertContent: null | { [k: string]: string };
+}
+
 export interface IAddFriendDialogPropsType {
   isDialogOpen: boolean;
   closeDialog: () => void;
@@ -148,12 +161,6 @@ export interface IFriendItemPropsType {
     id: string,
     name: string
   }, chatType: string) => void;
-}
-
-export interface IPendingInvite {
-  receiverId: string;
-  senderId: { _id: string, mail: string, username: string };
-  _id: string;
 }
 
 export interface IPendingInvitationListPropsType {
@@ -188,12 +195,4 @@ export interface ISingleMessagePropType {
 
 export interface IMessagesInputPropsType {
   chosenChatDetails?: ChosenChatDetails;
-}
-
-export interface IDirectMessageData {
-  content: string,
-  receiverUserId: {
-    id: string,
-    name: string
-  }
 }
