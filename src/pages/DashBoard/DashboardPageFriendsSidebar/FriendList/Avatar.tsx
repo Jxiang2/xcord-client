@@ -3,8 +3,8 @@ import {styled} from "@mui/material";
 import {IAvatarPropsType} from "../../../../react-app-env";
 
 const AvatarPreview = styled("div")({
-  height: "42px",
-  width: "42px",
+  height: "45px",
+  width: "45px",
   backgroundColor: "#5865f2",
   display: "flex",
   borderRadius: "42px",
@@ -19,7 +19,7 @@ const AvatarPreview = styled("div")({
 const Avatar = ({username, large}: IAvatarPropsType) => {
   return (
     <AvatarPreview style={large ? {height: "80px", width: "80px"} : {}}>
-      {username.substring(0, 2)}
+      {username.substring(0, 1).toUpperCase() + username.substring(1, 3).toLowerCase()}
     </AvatarPreview>
   );
 };

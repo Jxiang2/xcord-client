@@ -68,7 +68,6 @@ const MessagesInput = ({chosenChatDetails}: IMessagesInputPropsType) => {
       />
 
       <AdditionalArea>
-        Additional Area
       </AdditionalArea>
     </MainContainer>
   );

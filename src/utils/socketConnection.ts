@@ -7,7 +7,7 @@ import {
   setOnlineUsers,
   setPendingFriendsInvites
 } from "../store/actions/friendsActions";
-import {updateDirectChatHistoryIfActive} from "./directChat";
+import {updateDirectChatHistoryIfActive} from "./chat";
 
 let socket: Socket | null = null;
 
@@ -38,14 +38,12 @@ export const connectWithSocketServer = (userDetails: UserDetails) => {
   });
 
   socket.on("direct-chat-history", (data) => {
-    console.log(data);
     updateDirectChatHistoryIfActive(data);
   });
 };
 
 // client emitters
 export const sendDirectMessage = (data: IDirectMessageData) => {
-  console.log(data);
   socket?.emit("direct-message", data);
 };
 
