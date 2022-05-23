@@ -7,7 +7,7 @@ import {
   setOnlineUsers,
   setPendingFriendsInvites
 } from "../store/actions/friendsActions";
-import {updateDirectChatHistoryIfActive} from "./chat";
+import {updateDirectChatHistoryIfActive} from "./directChat";
 
 let socket: Socket | null = null;
 

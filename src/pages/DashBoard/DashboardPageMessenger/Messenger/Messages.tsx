@@ -1,62 +1,9 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import {connect} from "react-redux";
 import {IMessagesPropType, IReduxState} from "../../../../react-app-env";
 import {styled} from "@mui/system";
 import MessagesHeader from "./MessagesHeader";
 import SingleMessage from "./SingleMessage";
-
-const DUMMY_MESSAGES = [
-  {
-    _id: 1,
-    content: "hello",
-    sameAuthor: "false",
-    author: {
-      username: "Marek",
-    },
-    date: "22/01/2022",
-    sameDay: false,
-  },
-  {
-    _id: 2,
-    content: "hello once again",
-    sameAuthor: "true",
-    author: {
-      username: "Marek",
-    },
-    date: "22/01/2022",
-    sameDay: true,
-  },
-  {
-    _id: 3,
-    content: "hello third time",
-    sameAuthor: "true",
-    author: {
-      username: "Marek",
-    },
-    date: "23/01/2022",
-    sameDay: false,
-  },
-  {
-    _id: 4,
-    content: "hello response first time",
-    sameAuthor: false,
-    author: {
-      username: "John",
-    },
-    date: "23/01/2022",
-    sameDay: true,
-  },
-  {
-    _id: 5,
-    content: "hello response third time",
-    sameAuthor: true,
-    author: {
-      username: "John",
-    },
-    date: "24/01/2022",
-    sameDay: false,
-  },
-];
 
 const MainContainer = styled("div")({
   height: "calc(100% - 60px)",
@@ -66,20 +13,59 @@ const MainContainer = styled("div")({
   alignItems: "center"
 });
 
-const Messages = ({chosenChatDetails, messages}: IMessagesPropType) => {
+const DateSeparatorContainer = styled("div")({
+  width: "95%",
+  backgroundColor: "#b9bbbe",
+  height: "1px",
+  position: "relative",
+  marginTop: "20px",
+  marginBottom: "10px"
+});
+
+const DateLabel = styled("span")({
+  backgroundColor: "#36393f",
+  position: "absolute",
+  left: "45%",
+  top: "-10px",
+  color: "#b9bbbe",
+  padding: "0 5px",
+  fontSize: "14px"
+});
+
+const Messages = ({messages}: IMessagesPropType) => {
   return (
     <MainContainer>
       <MessagesHeader/>
 
-      {DUMMY_MESSAGES.map((message, index) => {
-        return <SingleMessage
-          key={message._id}
-          content={message.content}
-          username={message.author.username}
-          sameAuthor={message.sameAuthor}
-          date={message.date}
-          sameDay={message.sameDay}
-        />;
+      {messages?.map((message, index) => {
+        let sameAuthor: boolean = false;
+        let sameDay: boolean = false;
+        if (messages) {
+          sameAuthor =
+            index > 0 &&
+            messages[index].author._id === messages[index - 1].author._id;
+
+          sameDay =
+            index > 0 &&
+            new Date(message.date).toDateString() === new Date(messages[index - 1].date).toDateString();
+        }
+
+        return (
+          <Fragment key={message._id}>
+            {(!sameDay || index === 0) &&
+              <DateSeparatorContainer>
+                <DateLabel>{message.date.substring(0, 10)}</DateLabel>
+              </DateSeparatorContainer>}
+
+            <SingleMessage
+              content={message.content}
+              username={message.author.username}
+              sameAuthor={sameAuthor}
+              date={message.date}
+              sameDay={sameDay}
+            />
+          </Fragment>
+        );
       })}
     </MainContainer>
   );

@@ -50,7 +50,7 @@ const SingleMessage = ({content, username, sameAuthor, date, sameDay}: ISingleMe
       <MessageContainer>
         <Typography style={{fontSize: "16px", color: "white"}}>
           {username}{" "}
-          <span style={{fontSize: "12px", color: "#72767d"}}>{date}</span>
+          <span style={{fontSize: "12px", color: "#72767d"}}>{date.substring(0, 10)}</span>
         </Typography>
 
         <MessageContent>{content}</MessageContent>

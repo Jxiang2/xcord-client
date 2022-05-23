@@ -9,7 +9,7 @@ export const updateDirectChatHistoryIfActive = (data: IChatBetweenUsers) => {
   const receiverId = storeStates.chat.chosenChatDetails?.id;
   const userID = storeStates.auth.userDetails?._id;
 
-  // check if the userId is online & check if the scope of conversation is correct
+  // check if the userId is online & check if the conversation scope is correct
   if (receiverId && userID) {
     const usersInConversation = [receiverId, userID];
 
