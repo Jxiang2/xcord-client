@@ -20,10 +20,7 @@ export type ChosenChatDetails = {
 // interfaces
 export interface IDirectMessageData {
   content: string,
-  receiverUserId: {
-    id: string,
-    name: string
-  }
+  receiverUserId: string
 }
 
 export interface IFriendProperty {

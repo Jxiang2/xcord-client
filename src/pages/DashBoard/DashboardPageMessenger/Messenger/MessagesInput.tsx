@@ -50,7 +50,7 @@ const MessagesInput = ({chosenChatDetails}: IMessagesInputPropsType) => {
   const handSendMessage = () => {
     if (message.length > 0 && chosenChatDetails) {
       sendDirectMessage({
-        receiverUserId: chosenChatDetails,
+        receiverUserId: chosenChatDetails.id,
         content: message,
       });
     }
