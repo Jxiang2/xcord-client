@@ -22,13 +22,13 @@ export const setChosenChatDetails = (chatDetails: { id: string, name: string }, 
   return {
     type: chatActions.SET_CHOSEN_CHAT_DETAILS,
     chatType: type,
-    chatDetails: chatDetails
+    chatDetails: chatDetails,
   };
 };
 
 export const setMessages = (messages: Array<any>) => {
   return {
     type: chatActions.SET_MESSAGES,
-    messages
+    messages: messages,
   };
 };

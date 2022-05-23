@@ -23,6 +23,11 @@ export interface IDirectMessageData {
   receiverUserId: string
 }
 
+export interface IChatBetweenUsers {
+  messages: Array<any>;
+  participants: Array<string>;
+}
+
 export interface IFriendProperty {
   id: string,
   mail: string,
@@ -60,9 +65,10 @@ export interface IReduxAction extends Action {
 }
 
 export interface IChatReduxAction extends Action {
-  chatDetails: { id: string, name: string },
-  chatType: string,
-  messages: Array<any>
+  type: string;
+  chatDetails?: { id: string, name: string },
+  chatType?: string,
+  messages?: Array<any>
 }
 
 export interface ILoginData {

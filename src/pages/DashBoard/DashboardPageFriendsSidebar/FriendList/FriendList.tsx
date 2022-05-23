@@ -9,7 +9,7 @@ const MainContainer = styled("div")({
   width: "100%"
 });
 
-const checkOnlineUsers = (friends: Friends = [], onlineUsers: OnlineUsers = []): Friends => {
+const checkOnlineUsers = (friends: Friends = [], onlineUsers: OnlineUsers = []) => {
   friends.forEach(f => f.isOnline = !!onlineUsers.find(user => user.userId === f.id));
   return friends;
 };
