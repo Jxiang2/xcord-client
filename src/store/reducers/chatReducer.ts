@@ -1,5 +1,5 @@
 import {chatActions} from "../actions/chatActions";
-import {IChatReduxAction, IReduxAction} from "../../react-app-env";
+import {IChatActionPayload, IReduxAction} from "../../react-app-env";
 
 const initState = {
   chosenChatDetails: null,
@@ -10,7 +10,7 @@ const initState = {
 const chatReducer = (state = initState, action: IReduxAction) => {
   switch (action.type) {
     case chatActions.SET_CHOSEN_CHAT_DETAILS:
-      const payload = action.payload as IChatReduxAction;
+      const payload = action.payload as IChatActionPayload;
       return {
         ...state,
         chosenChatDetails: payload.chatDetails,

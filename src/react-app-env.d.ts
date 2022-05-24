@@ -62,11 +62,11 @@ export interface IReduxAction extends Action {
     | IFriendProperty[]
     | IPendingInvite[]
     | IOnlineUserProperty[]
-    | IChatReduxAction
+    | IChatActionPayload
     | Array<any>;
 }
 
-export interface IChatReduxAction {
+export interface IChatActionPayload {
   chatType: string;
   chatDetails: { id: string, name: string };
 }
