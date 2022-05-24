@@ -61,14 +61,21 @@ export interface IReduxAction extends Action {
     | { [k: string]: string | number | object | boolean }
     | IFriendProperty[]
     | IPendingInvite[]
-    | IOnlineUserProperty[];
+    | IOnlineUserProperty[]
+    | IChatReduxAction
+    | Array<any>;
+}
+
+export interface IChatReduxAction {
+  chatType: string;
+  chatDetails: { id: string, name: string };
 }
 
 export interface IChatReduxAction extends Action {
   type: string;
-  chatDetails?: { id: string, name: string },
-  chatType?: string,
-  messages?: Array<any>
+  chatType: string;
+  chatDetails: { id: string, name: string };
+  messages: Array<any>;
 }
 
 export interface ILoginData {

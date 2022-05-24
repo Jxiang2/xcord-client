@@ -4,7 +4,7 @@ import DashboardPageFriendsSidebar from "./DashboardPageFriendsSidebar/Dashboard
 import DashboardPageMessenger from "./DashboardPageMessenger/DashboardPageMessenger";
 import DashboardPageNavbar from "./DashboardPageNavbar/DashboardPageNavbar";
 import {useEffect} from "react";
-import {logout} from "../../utils/auth";
+import api from "../../utils/api";
 import {Dispatch} from "@reduxjs/toolkit";
 import {getActions} from "../../store/actions/authActions";
 import {connect} from "react-redux";
@@ -25,7 +25,7 @@ const DashboardPage = (
     const userDetails = localStorage.getItem("user");
 
     if (!userDetails) {
-      logout();
+      api.logout();
     } else {
       // keep login state & connect to socket.io
       const parsedUserDetails = JSON.parse(userDetails);

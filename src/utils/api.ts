@@ -1,6 +1,10 @@
 import axios, {AxiosError} from "axios";
-import {logout} from "./auth";
 import {ILoginData, IRegisterData} from "../react-app-env";
+
+const logout = () => {
+  localStorage.clear();
+  window.location.pathname = "/login";
+};
 
 const apiClient = axios.create({
   baseURL: "http://127.0.0.1:8080/api",
@@ -74,5 +78,5 @@ const rejectFriendInvite = async (data: { id: string }) => {
   }
 };
 
-const api = {login, register, sendFriendInvite, acceptFriendInvite, rejectFriendInvite};
+const api = {login, logout, register, sendFriendInvite, acceptFriendInvite, rejectFriendInvite};
 export default api;

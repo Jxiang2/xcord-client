@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button, styled} from "@mui/material";
 import EmojiPeopleIcon from '@mui/icons-material/EmojiPeople';
-import {logout} from "../../../utils/auth";
+import api from "../../../utils/api";
 import ChosenOptionLabel from "./ChosenOptionLabel";
 
 const MainContainer = styled("div")({
@@ -31,7 +31,7 @@ const DashboardPageNavbar = () => {
 
       <Button
         style={{marginLeft: "auto"}}
-        onClick={logout}
+        onClick={api.logout}
       >
         Logout
       </Button>
