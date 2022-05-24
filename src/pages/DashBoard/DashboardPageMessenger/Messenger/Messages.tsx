@@ -2,8 +2,8 @@ import React, {Fragment} from 'react';
 import {connect} from "react-redux";
 import {IMessagesPropType, IReduxState} from "../../../../react-app-env";
 import {styled} from "@mui/system";
-import MessagesHeader from "./MessagesHeader";
 import SingleMessage from "./SingleMessage";
+import {Typography} from "@mui/material";
 
 const MainContainer = styled("div")({
   height: "calc(100% - 60px)",
@@ -11,6 +11,12 @@ const MainContainer = styled("div")({
   display: "flex",
   flexDirection: "column",
   alignItems: "center"
+});
+
+const HeaderContainer = styled("div")({
+  width: "95%",
+  display: "column",
+  marginTop: "10px"
 });
 
 const DateSeparatorContainer = styled("div")({
@@ -35,7 +41,17 @@ const DateLabel = styled("span")({
 const Messages = ({messages}: IMessagesPropType) => {
   return (
     <MainContainer>
-      <MessagesHeader/>
+      <HeaderContainer>
+        <Typography
+          sx={{
+            color: "#b9bbbe",
+            alignSelf: "center",
+            borderBottom: "1.5px solid #b9bbbe",
+            marginBottom: "15px"
+          }}>
+          This is the beginning of your conversation
+        </Typography>
+      </HeaderContainer>
 
       {messages?.map((message, index) => {
         let sameAuthor: boolean = false;
