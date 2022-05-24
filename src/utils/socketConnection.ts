@@ -1,13 +1,13 @@
 import type {Socket} from "socket.io-client";
 import io from "socket.io-client";
-import {IDirectMessageData, UserDetails} from "../react-app-env";
+import {IDirectMessageData, IGroupMessageData, UserDetails} from "../react-app-env";
 import store from "../store/store";
 import {
   setFriends,
   setOnlineUsers,
   setPendingFriendsInvites
 } from "../store/actions/friendsActions";
-import {updateDirectChatHistoryIfActive} from "./chat";
+import {updateChatHistoryIfActive} from "./chat";
 
 let socket: Socket | null = null;
 
@@ -38,7 +38,11 @@ export const connectWithSocketServer = (userDetails: UserDetails) => {
   });
 
   socket.on("direct-chat-history", (data) => {
-    updateDirectChatHistoryIfActive(data);
+    updateChatHistoryIfActive(data);
+  });
+
+  socket.on("group-chat-history", (data) => {
+    updateChatHistoryIfActive(data);
   });
 };
 
@@ -47,6 +51,14 @@ export const sendDirectMessage = (data: IDirectMessageData) => {
   socket?.emit("direct-message", data);
 };
 
+export const sendGroupMessage = (data: IGroupMessageData) => {
+  socket?.emit("group-message", data);
+};
+
 export const getDirectChatHistory = (data: { receiverUserId: string }) => {
   socket?.emit("direct-chat-history", data);
+};
+
+export const getGroupChatHistory = (data: { receiverUserIds: Array<string> }) => {
+  socket?.emit("group-chat-history", data);
 };

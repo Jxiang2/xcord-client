@@ -19,8 +19,13 @@ export type ChosenChatDetails = {
 
 // interfaces
 export interface IDirectMessageData {
-  content: string,
-  receiverUserId: string
+  content: string;
+  receiverUserId: string;
+}
+
+export interface IGroupMessageData {
+  content: string;
+  receiverUserIds: Array<string>;
 }
 
 export interface IChatBetweenUsers {
@@ -29,15 +34,15 @@ export interface IChatBetweenUsers {
 }
 
 export interface IFriendProperty {
-  id: string,
-  mail: string,
-  username: string
-  isOnline?: boolean
+  id: string;
+  mail: string;
+  username: string;
+  isOnline?: boolean;
 }
 
 export interface IOnlineUserProperty {
-  socketId: string,
-  userId: string
+  socketId: string;
+  userId: string;
 }
 
 export interface IReduxState {

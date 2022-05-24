@@ -2,23 +2,30 @@ import store from "../store/store";
 import {IChatBetweenUsers, IReduxState} from "../react-app-env";
 import {setMessages} from "../store/actions/chatActions";
 
-export const updateDirectChatHistoryIfActive = (data: IChatBetweenUsers) => {
+export const updateChatHistoryIfActive = (data: IChatBetweenUsers) => {
   const {participants, messages} = data;
   const storeStates = store.getState() as IReduxState;
-
-  const receiverId = storeStates.chat.chosenChatDetails?.id;
   const userID = storeStates.auth.userDetails?._id;
 
-  // check if the userId is online & check if the conversation scope is correct
-  if (receiverId && userID) {
-    const usersInConversation = [receiverId, userID];
+  if (participants.length === 2) {
+    // direct message between 2 users
+    const receiverId = storeStates.chat.chosenChatDetails?.id;
 
-    const result = participants.every((participantId: string) => {
-      return usersInConversation.includes(participantId);
-    });
+    // check if the userId is online & check if the conversation scope is correct
+    if (receiverId && userID) {
+      const usersInConversation = [receiverId, userID];
 
-    if (result) {
-      store.dispatch(setMessages(messages));
+      const result = participants.every((participantId: string) => {
+        return usersInConversation.includes(participantId);
+      });
+
+      if (result) {
+        store.dispatch(setMessages(messages));
+      }
     }
+  } else {
+    // TODO
+    // group message between multiple users
   }
+
 };
